@@ -846,6 +846,10 @@ div.resumen input{
   display: block;
   margin:10px auto 10px 0;
 }
+div.resumen input.button{
+  display: block;
+  margin:10px auto;
+}
 
 #lista_productos{
   background-color: #e1e1e1;
