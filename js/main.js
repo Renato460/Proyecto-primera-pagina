@@ -35,6 +35,33 @@ var regalo = document.getElementById('regalo');
   pase_dosdias.addEventListener('blur', mostrarDias);
   pase_completo.addEventListener('blur', mostrarDias);
 
+  nombre.addEventListener ('blur', validarCampos);
+  apellido.addEventListener ('blur', validarCampos);
+  email.addEventListener ('blur', validarCampos);
+  email.addEventListener ('blur', validarMail);
+
+  function validarCampos(){
+    if(this.value == ''){
+      errorDiv.style.display= 'block';
+      errorDiv.innerHTML = 'Este campo es obligatorio';
+      this.style.border = '1px solid red';
+      errorDiv.style.border = '1px solid red';
+    }else{
+      errorDiv.style.display = 'none'
+      this.style.border = '1px solid #cccccc'
+    }
+  }
+  function validarMail() {
+    if(this.value.indexOf('@') > -1){
+      errorDiv.style.border = '1px solid #cccccc';
+    }else {
+      errorDiv.style.display= 'block';
+      errorDiv.innerHTML = 'Debe tener al menos un "@"';
+      this.style.border = '1px solid red';
+      errorDiv.style.border = '1px solid red';
+    }
+  }
+
 
   function calcularMontos(event){
     event.preventDefault();
@@ -99,7 +126,7 @@ var regalo = document.getElementById('regalo');
         for (var i = 0; i < diasElegidos.length; i++) {
           document.getElementById(diasElegidos[i]).style.display ='block';
         }
-    console.log(pase_dia.value);
+//    console.log(pase_dia.value);
   }
 
 
